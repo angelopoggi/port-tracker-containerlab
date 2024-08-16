@@ -1,0 +1,22 @@
+
+name: port-tracker-lab
+
+topology:
+  nodes:
+    ceos:
+      kind: ceos
+      image: ceos:4.32.1F
+    pc1:
+      kind: linux
+      image: alpine
+    pc2:
+      kind: linux
+      image: alpine
+    pc3:
+      kind: linux
+      image: alpine
+  links:
+    - endpoints: ["ceos:eth1", "pc1:eth1"]
+    - endpoints: ["ceos:eth2", "pc2:eth1"]
+    - endpoints: ["ceos:eth3", "pc3:eth1"]
+    
